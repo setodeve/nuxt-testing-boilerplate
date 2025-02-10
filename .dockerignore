@@ -1,0 +1,27 @@
+# node_modules ディレクトリを無視
+node_modules
+npm-debug.log
+pnpm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# ビルド済みのファイルを無視 (Nuxt3 の生成物)
+.nuxt
+.output
+dist
+
+# ログファイルや一時ファイルを無視
+*.log
+*.lock
+*.tmp
+*.swp
+.DS_Store
+
+# Git リポジトリ関連
+.git
+.gitignore
+
+# Docker 関連ファイル
+docker-compose.yml
+Dockerfile
+
