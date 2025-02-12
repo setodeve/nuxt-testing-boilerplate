@@ -1,18 +1,21 @@
-# Nuxtテスト環境向けボイラープレート
+# Nuxt テスト環境向けボイラープレート
 
-Nuxtアプリ上でのテスト、Storybook環境構築のためのボイラープレートです。
-テスト実行方法とStorybookの起動方法について説明します。
+このボイラープレートは、Nuxt アプリでテストと Storybook 環境をセットアップするためのテンプレートです。
 
 ## セットアップ
 
-### dockerコンテナの起動
+### Docker コンテナのビルドと起動
+
+以下のコマンドで Docker イメージを再構築し、コンテナをバックグラウンドで起動します。
 
 ```bash
 sudo docker-compose build --no-cache
 sudo docker-compose up -d
 ```
 
-### dockerコンテナに入る
+### Docker コンテナへのアクセス
+
+コンテナ内に入る場合は、次のコマンドを実行します。
 
 ```bash
 docker-compose exec nuxt sh
@@ -20,83 +23,81 @@ docker-compose exec nuxt sh
 
 ## テストについて
 
-### ディレクトリ構成例
+### ディレクトリ構成の例
+
+テストコードはプロジェクト内で次のように整理されています。
 
 ```bash
 app/
 ├─ components/
 │   ├─ Header.vue
-│   ├─ Header.test.ts   // 単体テスト
+│   ├─ Header.test.ts   // 単体テスト用
 │   └─ ...
 ├─ pages/
-│   ├─ about
+│   ├─ about/
 │   │    └─ index.vue
 │   └─ ...
 └─ tests/
     ├─ integration/
     │   ├─ pages/
-    │   │   └─ about.test.ts  // 統合テスト
+    │   │   └─ about.test.ts  // 統合テスト用
     │   └─ ...
     └─ e2e/
-        └─ example.test.ts  // ユーザ操作のシミュレーション
+        ├─ example.test.ts  // E2E テスト用
+        └─ ...
 ```
 
-### 単体テスト/統合テスト
+### 単体テスト・統合テスト
 
-[vitest](https://vitest.dev/)を使用します。
-単体テストは'tests/unit'ディレクトリに追加します。
-統合テストは'tests/integration'ディレクトリに追加します。
+[vitest](https://vitest.dev/) を利用してテストを実行します。
 
-【テスト内容】
+- 単体テスト
+  - 個々の関数、メソッド、コンポーネントの動作確認を行います。
+- 統合テスト
+  - 複数コンポーネント間の連携やページ全体の動作を確認します。
 
-単体テストでは以下のようなテストを想定しています。
-
-- 個々の関数やメソッド、コンポーネントの動作確認
-
-統合テストでは以下のようなテストを想定しています。
-
-- 複数コンポーネントの連携確認、ページ単位の動作確認
-
-【実行方法】  
+【テストの実行方法】
 
 ```bash
 docker-compose exec nuxt pnpm test
-# または、コンテナに入った後 pnpm test
+# または、コンテナ内で pnpm test
 ```
 
-### E2Eテスト
+### E2E テスト
 
-E2Eテストは、[Playwright](https://playwright.dev/docs/writing-tests)を使用します。
-テストは'tests/e2e'ディレクトリに追加します。
+E2E テストには [Playwright](https://playwright.dev/docs/writing-tests) を利用します。
+テストコードは `tests/e2e` に追加してください。
 
 【テスト内容】
 
-E2Eテストでは以下のようなテストを想定しています。
+- ユーザー操作のシミュレーションによる、アプリ全体の動作確認
 
-- ユーザ操作のシミュレーション  
+【テスト実行方法】
 
-【実行方法】
+以下のコマンドで E2E テストを開始できます。
 
 ```bash
 sudo docker-compose exec nuxt pnpm e2e
-# または、コンテナに入った後に pnpm e2e
+# または、コンテナ内で pnpm e2e
 ```
 
-【テスト生成】
+【テストコードの自動生成】
 
-ブラウザ操作を元にテストコードを生成します。
+ブラウザ操作から Playwright がテストコードを自動生成するには、次のコマンドを使用します。
 
 ```bash
 cd app
-pnpm exec playwright codegen <テストしたいページのURL>
+pnpm exec playwright codegen <テスト対象ページのURL>
 # 例: pnpm exec playwright codegen http://localhost:30000/example
 ```
 
-【テスト結果表示】
+【テスト結果の確認】
+
+生成されたE2Eのテスト結果レポートは以下のコマンドで表示できます。
 
 ```bash
 cd app
 pnpm exec playwright show-report tests/e2e/test-results
 ```
 
-## Storybookの利用
+## Storybookについて
