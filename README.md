@@ -18,24 +18,49 @@ sudo docker-compose up -d
 docker-compose exec nuxt sh
 ```
 
-## テストの実行方法
+## テストについて
 
-### ユニットテスト
+### ディレクトリ構成例
 
-ユニットテストは、[vitest](https://vitest.dev/)を使用します。
-テストは'tests/unit'ディレクトリに追加します。
+```bash
+app/
+├─ components/
+│   ├─ Header.vue
+│   ├─ Header.test.ts   // 単体テスト
+│   └─ ...
+├─ pages/
+│   ├─ about
+│   │    └─ index.vue
+│   └─ ...
+└─ tests/
+    ├─ integration/
+    │   ├─ pages/
+    │   │   └─ about.test.ts  // 統合テスト
+    │   └─ ...
+    └─ e2e/
+        └─ example.test.ts  // ユーザ操作のシミュレーション
+```
+
+### 単体テスト/統合テスト
+
+[vitest](https://vitest.dev/)を使用します。
+単体テストは'tests/unit'ディレクトリに追加します。
+統合テストは'tests/integration'ディレクトリに追加します。
 
 【テスト内容】
 
-ユニットテストでは以下のようなテストを想定しています。
+単体テストでは以下のようなテストを想定しています。
 
-- 個々の関数やメソッドの動作確認
-- コンポーネントのレンダリング検証
+- 個々の関数やメソッド、コンポーネントの動作確認
+
+統合テストでは以下のようなテストを想定しています。
+
+- 複数コンポーネントの連携確認、ページ単位の動作確認
 
 【実行方法】  
 
 ```bash
-sudo docker-compose exec nuxt pnpm test
+docker-compose exec nuxt pnpm test
 # または、コンテナに入った後 pnpm test
 ```
 
@@ -49,7 +74,6 @@ E2Eテストは、[Playwright](https://playwright.dev/docs/writing-tests)を使�
 E2Eテストでは以下のようなテストを想定しています。
 
 - ユーザ操作のシミュレーション  
-- ページ遷移やフォーム送信など、複数コンポーネント間の連携確認
 
 【実行方法】
 
@@ -59,6 +83,8 @@ sudo docker-compose exec nuxt pnpm e2e
 ```
 
 【テスト生成】
+
+ブラウザ操作を元にテストコードを生成します。
 
 ```bash
 cd app
