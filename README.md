@@ -100,4 +100,24 @@ cd app
 pnpm exec playwright show-report tests/e2e/test-results
 ```
 
-## Storybookについて
+### Storybookについて
+
+#### Storybook の使用方法とストーリーの追加方法
+
+Storybook を使用して、コンポーネントの動作を確認し、ドキュメントを作成します。
+`stories` ディレクトリにコンポーネントのストーリーを追加してください。
+
+```bash
+app/
+└─ stories/
+  ├─ components/
+  │   ├─ Header.stories.ts
+  │   └─ ...
+  └─ pages/
+      ├─ Example.stories.ts
+      └─ ...
+```
+
+#### Storybook の確認方法
+
+コンテナ立ち上げ後 `http://localhost:6006` で Storybook のページが表示されます。
