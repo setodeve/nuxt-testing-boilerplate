@@ -31,6 +31,6 @@ nav ul {
 
 nav li a {
   text-decoration: none;
-  color: #007bff;
+  color: #2b4765
 }
 </style>
