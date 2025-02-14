@@ -2,8 +2,8 @@
   <header>
     <nav>
       <ul>
-        <li><nuxt-link to="/">Home</nuxt-link></li>
-        <li><nuxt-link to="/example">Example</nuxt-link></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/example">Example</a></li>
       </ul>
     </nav>
   </header>

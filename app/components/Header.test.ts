@@ -11,7 +11,7 @@ describe('Header Component', () => {
     const wrapper = mount(Header, {
       props: { navLinks }
     })
-    const links = wrapper.findAll('routerlink')
+    const links = wrapper.findAll('a')
     expect(links.length).toBe(2)
   })
 })
