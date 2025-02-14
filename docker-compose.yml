@@ -5,8 +5,8 @@ services:
       dockerfile: docker/Dockerfile
     ports:
       - 30000:3000
+      - 6006:6006 # storybook
     volumes:
       - ./app:/app
       - /app/node_modules
     restart: unless-stopped
-

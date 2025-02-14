@@ -9,7 +9,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "test": "vitest",
-    "e2e": "pnpm exec playwright test"
+    "e2e": "pnpm exec playwright test",
+    "storybook": "storybook dev --port 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "nuxt": "^3.15.4",
@@ -23,6 +25,17 @@
     "@vue/test-utils": "^2.4.6",
     "happy-dom": "^16.8.1",
     "playwright-core": "^1.50.1",
-    "vitest": "^3.0.5"
+    "vitest": "^3.0.5",
+    "storybook": "8.0.8",
+    "@types/node": "^18.17.5",
+    "@storybook/vue3": "8.0.8",
+    "@storybook-vue/nuxt": "0.2.6",
+    "@nuxtjs/storybook": "7.0.2",
+    "@storybook/addon-links": "8.0.8",
+    "@storybook/builder-vite": "8.0.8",
+    "@storybook/addon-essentials": "8.0.8",
+    "@storybook/addon-interactions": "8.0.8",
+    "@storybook/test": "8.0.8",
+    "@storybook/blocks": "8.0.8"
   }
 }

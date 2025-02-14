@@ -7,5 +7,5 @@ export default defineNuxtConfig({
     "assets": "/app/assets",
     "public": "/app/public"
   },
-  modules: ['@nuxt/test-utils/module'],
+  modules: ['@nuxt/test-utils/module', "@nuxtjs/storybook"],
 })
