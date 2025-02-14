@@ -1,17 +1,17 @@
-import ExampleButton from '~/pages/example/index.vue';
+import Example from '~/pages/example/index.vue';
 import { Meta, Story } from '@storybook/vue3';
 
 export default {
-  title: 'Pages/ExampleButton',
-  component: ExampleButton,
+  title: 'Pages/Example',
+  component: Example,
 } as Meta;
 
 const Template: Story = (args) => ({
-  components: { ExampleButton },
+  components: { Example },
   setup() {
     return { args };
   },
-  template: '<ExampleButton v-bind="args" />',
+  template: '<Example v-bind="args" />',
 });
 
 export const Default = Template.bind({});

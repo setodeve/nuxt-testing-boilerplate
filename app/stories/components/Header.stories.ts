@@ -7,7 +7,6 @@ export default {
 
 const Template = (args, { argTypes }) => ({
   components: { Header },
-  // props: Object.keys(argTypes),
   template: '<Header />',
 });
 
