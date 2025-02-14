@@ -16,6 +16,7 @@ describe('Example Page Test', () => {
     const countDisplay = screen.getByTestId('count');
     expect(countDisplay.textContent).toBe('0');
     const button = screen.getByRole('button');
+    expect(button).toBeDefined();  
     await fireEvent.click(button);
     expect(countDisplay.textContent).toBe('1');
   });
