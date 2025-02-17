@@ -1,0 +1,6 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button Component > matches snapshot 1`] = `
+"<p data-testid="count">0</p>
+<button>Hello</button>"
+`;
