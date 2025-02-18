@@ -23,6 +23,8 @@ docker-compose exec nuxt sh
 
 ## テストについて
 
+[テストについて基本情報の説明はこちら](./README_TEST.md)
+
 ### ディレクトリ構成の例
 
 テストコードはプロジェクト内で次のように整理されています。
@@ -84,9 +86,12 @@ sudo docker-compose exec nuxt pnpm e2e
 【テストコードの自動生成】
 
 ブラウザ操作から Playwright がテストコードを自動生成するには、次のコマンドを使用します。
+ブラウザを開く必要があるため、ホスト側で実行
 
 ```bash
 cd app
+# ホスト側からコンテナにアクセスするために、ホストのパッケージをインストール
+pnpm install
 pnpm exec playwright codegen <テスト対象ページのURL>
 # 例: pnpm exec playwright codegen http://localhost:30000/example
 ```
@@ -94,9 +99,11 @@ pnpm exec playwright codegen <テスト対象ページのURL>
 【テスト結果の確認】
 
 生成されたE2Eのテスト結果レポートは以下のコマンドで表示できます。
+ブラウザを開く必要があるため、ホスト側で実行
 
 ```bash
 cd app
+pnpm install # ホスト側からコンテナにアクセスするために、ホストのパッケージをインストール
 pnpm exec playwright show-report tests/e2e/test-results
 ```
 
