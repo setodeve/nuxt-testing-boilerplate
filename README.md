@@ -86,6 +86,7 @@ sudo docker-compose exec nuxt pnpm e2e
 【テストコードの自動生成】
 
 ブラウザ操作から Playwright がテストコードを自動生成するには、次のコマンドを使用します。
+
 ブラウザを開く必要があるため、ホスト側で実行
 
 ```bash
@@ -99,6 +100,7 @@ pnpm exec playwright codegen <テスト対象ページのURL>
 【テスト結果の確認】
 
 生成されたE2Eのテスト結果レポートは以下のコマンドで表示できます。
+
 ブラウザを開く必要があるため、ホスト側で実行
 
 ```bash
@@ -111,7 +113,6 @@ pnpm exec playwright show-report tests/e2e/test-results
 
 #### Storybook の使用方法とストーリーの追加方法
 
-Storybook を使用して、コンポーネントの動作を確認し、ドキュメントを作成します。
 `stories` ディレクトリにコンポーネントのストーリーを追加してください。
 
 ```bash
